@@ -1,0 +1,7 @@
+No task with id 99
+Pending tasks: ['Submit lab report', 'Book train tickets', 'Call plumber']
+Task id for 'plumber': 3
+Task id for 'gym': None
+Try this next: Book train tickets
+Tasks restored from file: 4
+Exported tasks to tasks.json

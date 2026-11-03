@@ -1,0 +1,6 @@
+PASS: importing the module does not run the demo
+PASS: labels are retained, independent, and do not mutate caller data
+PASS: invalid priority rejected without modifying tasks
+PASS: IDs, ordering, completion, and case-insensitive search
+PASS: JSON round trip preserves integer IDs and task fields
+PASS: email built and sent through mocked SMTP; no real mail sent
