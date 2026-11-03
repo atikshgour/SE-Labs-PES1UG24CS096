@@ -12,4 +12,3 @@ python -m coverage run --data-file=coverage_branch.dat --branch --source=irrigat
 python -m coverage report --data-file=coverage_branch.dat -m
 ```
 
-Capture screenshots of the two terminal reports for submission.
