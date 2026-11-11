@@ -1,0 +1,8 @@
+﻿==== Running parse_zone ====
+Enter zone:area in m2 (e.g. north:120): Zone and Area: ('North', 120.0)
+
+==== Running moisture_average ====
+Enter moisture readings as CSV (e.g. 40,35,50): Average Moisture: 41
+
+==== Running water_needed ====
+Enter area|rainfall (e.g. 120|8): Water Needed: 592.0

@@ -1,0 +1,101 @@
+F.F.F...FFFF..FFF..FFFF                                                  [100%]
+================================== FAILURES ===================================
+____________________________ test_parse_zone_fuzz _____________________________
+test_processor.py:10: in test_parse_zone_fuzz
+    def test_parse_zone_fuzz(value):
+test_processor.py:12: in test_parse_zone_fuzz
+    name, area = parse_zone(value)
+original_processor.py:4: in parse_zone
+    name, area = text.split(':')
+E   AttributeError: 'NoneType' object has no attribute 'split'
+E   Failing test case: test_parse_zone_fuzz(
+E       value=None,
+E   )
+_________________________ test_moisture_average_fuzz __________________________
+test_processor.py:26: in test_moisture_average_fuzz
+    def test_moisture_average_fuzz(value):
+test_processor.py:28: in test_moisture_average_fuzz
+    result = moisture_average(value)
+original_processor.py:8: in moisture_average
+    values = [int(r) for r in readings_csv.split(',')]
+E   AttributeError: 'NoneType' object has no attribute 'split'
+E   Failing test case: test_moisture_average_fuzz(
+E       value=None,
+E   )
+___________________________ test_water_needed_fuzz ____________________________
+test_processor.py:40: in test_water_needed_fuzz
+    def test_water_needed_fuzz(value):
+test_processor.py:42: in test_water_needed_fuzz
+    result = water_needed(value)
+original_processor.py:12: in water_needed
+    plot, rain = text.split('|')
+E   AttributeError: 'NoneType' object has no attribute 'split'
+E   Failing test case: test_water_needed_fuzz(
+E       value=None,
+E   )
+__________________ test_parse_zone_rejects_invalid[north:0] ___________________
+test_processor.py:56: in test_parse_zone_rejects_invalid
+    with pytest.raises(ValueError):
+E   Failed: DID NOT RAISE <class 'ValueError'>
+__________________ test_parse_zone_rejects_invalid[north:-2] __________________
+test_processor.py:56: in test_parse_zone_rejects_invalid
+    with pytest.raises(ValueError):
+E   Failed: DID NOT RAISE <class 'ValueError'>
+_________________ test_parse_zone_rejects_invalid[north:nan] __________________
+test_processor.py:56: in test_parse_zone_rejects_invalid
+    with pytest.raises(ValueError):
+E   Failed: DID NOT RAISE <class 'ValueError'>
+____________________ test_parse_zone_rejects_invalid[None] ____________________
+test_processor.py:57: in test_parse_zone_rejects_invalid
+    parse_zone(value)
+original_processor.py:4: in parse_zone
+    name, area = text.split(':')
+E   AttributeError: 'NoneType' object has no attribute 'split'
+________________ test_moisture_average_rejects_invalid[-1,20] _________________
+test_processor.py:62: in test_moisture_average_rejects_invalid
+    with pytest.raises(ValueError):
+E   Failed: DID NOT RAISE <class 'ValueError'>
+_________________ test_moisture_average_rejects_invalid[101] __________________
+test_processor.py:62: in test_moisture_average_rejects_invalid
+    with pytest.raises(ValueError):
+E   Failed: DID NOT RAISE <class 'ValueError'>
+_________________ test_moisture_average_rejects_invalid[None] _________________
+test_processor.py:63: in test_moisture_average_rejects_invalid
+    moisture_average(value)
+original_processor.py:8: in moisture_average
+    values = [int(r) for r in readings_csv.split(',')]
+E   AttributeError: 'NoneType' object has no attribute 'split'
+___________________ test_water_needed_rejects_invalid[-1|2] ___________________
+test_processor.py:68: in test_water_needed_rejects_invalid
+    with pytest.raises(ValueError):
+E   Failed: DID NOT RAISE <class 'ValueError'>
+___________________ test_water_needed_rejects_invalid[1|-2] ___________________
+test_processor.py:68: in test_water_needed_rejects_invalid
+    with pytest.raises(ValueError):
+E   Failed: DID NOT RAISE <class 'ValueError'>
+__________________ test_water_needed_rejects_invalid[nan|2] ___________________
+test_processor.py:68: in test_water_needed_rejects_invalid
+    with pytest.raises(ValueError):
+E   Failed: DID NOT RAISE <class 'ValueError'>
+___________________ test_water_needed_rejects_invalid[None] ___________________
+test_processor.py:69: in test_water_needed_rejects_invalid
+    water_needed(value)
+original_processor.py:12: in water_needed
+    plot, rain = text.split('|')
+E   AttributeError: 'NoneType' object has no attribute 'split'
+=========================== short test summary info ===========================
+FAILED test_original_processor.py::test_parse_zone_fuzz - AttributeError: 'No...
+FAILED test_original_processor.py::test_moisture_average_fuzz - AttributeErro...
+FAILED test_original_processor.py::test_water_needed_fuzz - AttributeError: '...
+FAILED test_original_processor.py::test_parse_zone_rejects_invalid[north:0]
+FAILED test_original_processor.py::test_parse_zone_rejects_invalid[north:-2]
+FAILED test_original_processor.py::test_parse_zone_rejects_invalid[north:nan]
+FAILED test_original_processor.py::test_parse_zone_rejects_invalid[None] - At...
+FAILED test_original_processor.py::test_moisture_average_rejects_invalid[-1,20]
+FAILED test_original_processor.py::test_moisture_average_rejects_invalid[101]
+FAILED test_original_processor.py::test_moisture_average_rejects_invalid[None]
+FAILED test_original_processor.py::test_water_needed_rejects_invalid[-1|2] - ...
+FAILED test_original_processor.py::test_water_needed_rejects_invalid[1|-2] - ...
+FAILED test_original_processor.py::test_water_needed_rejects_invalid[nan|2]
+FAILED test_original_processor.py::test_water_needed_rejects_invalid[None] - ...
+14 failed, 9 passed in 2.61s
